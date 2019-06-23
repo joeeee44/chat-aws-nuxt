@@ -1,0 +1,17 @@
+{
+    "projectName": "chat-aws-nuxt",
+    "version": "2.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "vue",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "dist",
+            "BuildCommand": "yarn build",
+            "StartCommand": "yarn start"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
+}
