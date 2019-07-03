@@ -31,7 +31,7 @@
     </v-flex>
 
     <v-flex xs12>
-      <v-btn color="primary" @click="createPost">Add</v-btn>
+      <v-btn color="primary" @click="createPost"> Add</v-btn>
     </v-flex>
   </v-layout>
 </template>
