@@ -1,6 +1,4 @@
 import colors from 'vuetify/es5/util/colors'
-require('dotenv').config()
-const { GRAPHQL_ENDPOINT, API_KEY } = process.env
 
 export default {
   // mode: 'universal',
@@ -49,8 +47,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/eslint-module'
   ],
   /*
    ** Axios module configuration
@@ -80,9 +77,5 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  env: {
-    GRAPHQL_ENDPOINT,
-    API_KEY
   }
 }

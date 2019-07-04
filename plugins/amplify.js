@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Amplify, * as AmplifyModules from 'aws-amplify'
 import { AmplifyPlugin, components } from 'aws-amplify-vue'
-import awsExports from '@/src/aws-exports'
+import awsconfig from '@/src/aws-exports'
 
-Amplify.configure(awsExports)
+Amplify.configure(awsconfig)
 
 Vue.use(AmplifyPlugin, AmplifyModules)
 Vue.component(components)
