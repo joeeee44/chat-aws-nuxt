@@ -42,7 +42,7 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container>
+      <v-container fill-height>
         <nuxt />
       </v-container>
     </v-content>
@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import { AmplifyEventBus } from 'aws-amplify-vue'
+
 export default {
   data() {
     return {
@@ -86,6 +88,15 @@ export default {
       rightDrawer: false,
       title: 'Chat'
     }
+  },
+  created() {
+    AmplifyEventBus.$on('authState', info => {
+      if (info === 'signedIn') {
+        this.$router.push('/')
+      } else if (info === 'signedOut') {
+        this.$router.push('/signin')
+      }
+    })
   }
 }
 </script>
