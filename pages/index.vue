@@ -45,6 +45,7 @@ import { createPost } from '@/src/graphql/mutations'
 import { onCreatePost } from '@/src/graphql/subscriptions'
 
 export default {
+  middleware: 'auth',
   data() {
     return {
       state: {
