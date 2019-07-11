@@ -9,8 +9,14 @@
 		}
 	},
 	"auth": {
-		"chatawsnuxt13adcc8f": {
+		"chatawsnuxt1fbd752e": {
 			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"analytics": {
+		"chatAwsNuxt": {
+			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation"
 		}
 	}

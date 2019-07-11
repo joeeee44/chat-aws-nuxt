@@ -1,0 +1,20 @@
+{
+    "appName": "chatAwsNuxt",
+    "roleName": "pinpointLambdaRoleebcc7835",
+    "cloudWatchPolicyName": "cloudWatchPolicyebcc7835",
+    "pinpointPolicyName": "pinpointPolicyebcc7835",
+    "authPolicyName": "pinpoint_amplify_ebcc7835",
+    "unauthPolicyName": "pinpoint_amplify_ebcc7835",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

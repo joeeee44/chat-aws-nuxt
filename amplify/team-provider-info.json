@@ -1,18 +1,18 @@
 {
     "master": {
         "awscloudformation": {
-            "AuthRoleName": "chat-aws-nuxt-master-20190704162416-authRole",
-            "UnauthRoleArn": "arn:aws:iam::494942594428:role/chat-aws-nuxt-master-20190704162416-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::494942594428:role/chat-aws-nuxt-master-20190704162416-authRole",
+            "AuthRoleName": "chat-aws-nuxt-master-20190711163719-authRole",
+            "UnauthRoleArn": "arn:aws:iam::494942594428:role/chat-aws-nuxt-master-20190711163719-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::494942594428:role/chat-aws-nuxt-master-20190711163719-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "chat-aws-nuxt-master-20190704162416-deployment",
-            "UnauthRoleName": "chat-aws-nuxt-master-20190704162416-unauthRole",
-            "StackName": "chat-aws-nuxt-master-20190704162416",
-            "StackId": "arn:aws:cloudformation:us-east-1:494942594428:stack/chat-aws-nuxt-master-20190704162416/bbb4d1d0-9e2c-11e9-85dc-0a5651437e88"
+            "DeploymentBucketName": "chat-aws-nuxt-master-20190711163719-deployment",
+            "UnauthRoleName": "chat-aws-nuxt-master-20190711163719-unauthRole",
+            "StackName": "chat-aws-nuxt-master-20190711163719",
+            "StackId": "arn:aws:cloudformation:us-east-1:494942594428:stack/chat-aws-nuxt-master-20190711163719/b7c1d000-a3ae-11e9-810c-0e89924d3e24"
         },
         "categories": {
             "auth": {
-                "chatawsnuxt13adcc8f": {}
+                "chatawsnuxt1fbd752e": {}
             }
         }
     }

@@ -1,9 +1,30 @@
 <template>
-  <v-layout row wrap>
-    <v-layout align-center justify-center>
-      <!-- <amplify&#45;authenticator :auth&#45;config="authConfig" /> -->
-      <amplify-authenticator />
-    </v-layout>
+  <v-layout row wrap align-center justify-center>
+    <v-card class="signin-form px-5 py-5">
+      <v-card-title class="headline">Sign in</v-card-title>
+
+      <nuxt-link to="signup">Sign up</nuxt-link>
+
+      <v-flex xs12>
+        <v-text-field
+          v-model="userInfo.email"
+          type="email"
+          label="email"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs12>
+        <v-text-field
+          v-model="userInfo.password"
+          block
+          type="password"
+          label="password"
+        ></v-text-field>
+      </v-flex>
+
+      <span>{{ errorMessage }}</span>
+      <v-btn block class="mt-4" color="primary" @click="signin">Sign in</v-btn>
+    </v-card>
   </v-layout>
 </template>
 
@@ -11,39 +32,33 @@
 export default {
   data() {
     return {
-      // authConfig: {
-      //   // 通常のログイン
-      //   signInConfig: {
-      //     header: 'Sign in !!'
-      //   },
-      //   // 登録
-      //   signUpConfig: {
-      //     hideDefaults: true,
-      //     signUpFields: [
-      //       {
-      //         label: 'Email',
-      //         key: 'username',
-      //         required: true,
-      //         type: 'email',
-      //         displayOrder: 0
-      //       },
-      //       {
-      //         label: 'Password',
-      //         key: 'password',
-      //         required: true,
-      //         type: 'text',
-      //         displayOrder: 1
-      //       }
-      //     ]
-      //   },
-      //   // 登録confirm
-      //   confirmSignUpConfig: {},
-      //   // パス忘れ
-      //   forgotPasswordConfig: {},
-      //   // MFA
-      //   confirmSignInConfig: {}
-      // }
+      userInfo: {
+        email: '',
+        password: '',
+      },
+      errorMessage: '',
     }
-  }
+  },
+
+  methods: {
+    signin() {
+      this.$Amplify.Auth.signIn(this.userInfo.email, this.userInfo.password)
+        .then(user => {
+          console.log(user)
+          this.$router.push('/')
+        })
+        .catch(err => {
+          console.log(err)
+          this.errorMessage = 'サインインできませんでした'
+        })
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.signin-form {
+  min-width: 330px;
+  text-align: center;
+}
+</style>

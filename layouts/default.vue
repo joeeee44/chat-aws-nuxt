@@ -75,18 +75,18 @@ export default {
         {
           icon: 'apps',
           title: 'Chat',
-          to: '/'
+          to: '/',
         },
         {
           icon: 'bubble_chart',
           title: 'Inspire',
-          to: '/inspire'
-        }
+          to: '/inspire',
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Chat'
+      title: 'Chat',
     }
   },
   created() {
@@ -97,6 +97,6 @@ export default {
         this.$router.push('/signin')
       }
     })
-  }
+  },
 }
 </script>

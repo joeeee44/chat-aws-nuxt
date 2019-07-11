@@ -51,8 +51,8 @@ export default {
       state: {
         posts: [],
         title: '',
-        content: ''
-      }
+        content: '',
+      },
     }
   },
 
@@ -61,7 +61,7 @@ export default {
       return this.state.posts.map((post, idx) => {
         return post
       })
-    }
+    },
   },
 
   async mounted(e) {
@@ -81,10 +81,10 @@ export default {
           ...this.state.posts.filter(content => {
             return content.title !== post.title
           }),
-          post
+          post,
         ]
         this.state.posts = posts
-      }
+      },
     })
   },
 
@@ -96,7 +96,7 @@ export default {
       // 新規登録 mutation
       const createPostInput = {
         title: this.state.title,
-        content: this.state.content
+        content: this.state.content,
       }
 
       // 登録処理
@@ -106,7 +106,7 @@ export default {
         this.state.title = ''
         this.state.content = ''
         await API.graphql(
-          graphqlOperation(createPost, { input: createPostInput })
+          graphqlOperation(createPost, { input: createPostInput }),
         )
         console.log('createPostInput: ', createPostInput)
       } catch (e) {
@@ -117,8 +117,8 @@ export default {
     onChange(e) {
       console.log(e)
       this['e.target.name'] = e.target.value
-    }
-  }
+    },
+  },
 }
 </script>
 
