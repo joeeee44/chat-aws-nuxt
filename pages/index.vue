@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap>
-    <amplify-sign-out></amplify-sign-out>
+    <v-btn block class="mt-4" color="primary" @click="signout">Sign out</v-btn>
 
     <v-flex xs12 class="mb-5">
       <v-card>
@@ -117,6 +117,16 @@ export default {
     onChange(e) {
       console.log(e)
       this['e.target.name'] = e.target.value
+    },
+
+    async signout() {
+      try {
+        await this.$Amplify.Auth.signOut()
+        this.signedIn = false
+        this.$router.push('/signin')
+      } catch (e) {
+        console.log(e)
+      }
     },
   },
 }

@@ -1,9 +1,9 @@
 <template>
   <v-layout row wrap align-center justify-center>
     <v-card class="signin-form px-5 py-5">
-      <v-card-title class="headline">Sign up</v-card-title>
+      <v-card-title class="headline">Forgot Password</v-card-title>
 
-      <nuxt-link to="signin">Sign in</nuxt-link>
+      <nuxt-link to="signup">Sign up</nuxt-link>
 
       <v-flex xs12>
         <v-text-field
@@ -11,6 +11,10 @@
           type="email"
           label="email"
         ></v-text-field>
+      </v-flex>
+
+      <v-flex xs12>
+        <v-text-field v-model="userInfo.code" label="Code"></v-text-field>
       </v-flex>
 
       <v-flex xs12>
@@ -30,7 +34,9 @@
       </v-flex>
 
       <span>{{ errorMessage }}</span>
-      <v-btn block class="mt-4" color="primary" @click="signup">signup</v-btn>
+      <v-btn block class="mt-4" color="primary" @click="forgotPassword"
+        >submit</v-btn
+      >
     </v-card>
   </v-layout>
 </template>
@@ -41,46 +47,31 @@ export default {
     return {
       userInfo: {
         email: '',
+        code: '',
         password: '',
-        confirmPassword: '',
       },
       errorMessage: '',
     }
   },
 
+  mounted() {
+    if (this.$route.params.email) {
+      this.userInfo.email = this.$route.params.email
+    }
+  },
+
   methods: {
-    async signup() {
-      if (!this.validate()) {
-        return
-      }
+    async forgotPassword() {
       try {
-        await this.$Amplify.Auth.signUp(
+        await this.$Amplify.Auth.forgotPasswordSubmit(
           this.userInfo.email,
+          this.userInfo.code,
           this.userInfo.password,
         )
-        this.$router.push({
-          name: 'confirm-signup',
-          params: { email: this.userInfo.email },
-        })
+        this.$router.push('/signin')
       } catch {
-        this.errorMessage = 'サインアップできませんでした'
+        this.errorMessage = '新しいパスワードを設定できませんでした。'
       }
-    },
-    validate() {
-      if (!this.userInfo.email) {
-        this.errorMessage = 'emailが入力されていません。'
-        return
-      }
-      if (!this.userInfo.password) {
-        this.errorMessage = 'passwordを入力してください。'
-        return
-      }
-      if (this.userInfo.password !== this.userInfo.confirmPassword) {
-        this.errorMessage = 'パスワードが一致しません。'
-        return false
-      }
-      this.errorMessage = ''
-      return true
     },
   },
 }
