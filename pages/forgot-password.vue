@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap align-center justify-center>
+  <v-layout row wrap justify-center>
     <v-card class="signin-form px-5 py-5">
       <v-card-title class="headline">Forgot Password</v-card-title>
 
@@ -82,5 +82,6 @@ export default {
   width: 100%;
   max-width: 400px;
   text-align: center;
+  position: absolute;
 }
 </style>
